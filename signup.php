@@ -54,9 +54,6 @@ function validate($data) {
                         <select class="form-control" id="usertype" name="usertype">
                             <option value="user">User</option>
                             <option value="admin">Admin</option>
-                            <option value="emergency_responder">Emergency Responder</option>
-                            <option value="researcher">Researcher</option>
-                            <option value="govt_agency">Government Agency</option>
                         </select>
                     </div>                
                     <div class="form-group_signup">
