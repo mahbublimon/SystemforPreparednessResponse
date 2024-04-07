@@ -21,9 +21,9 @@ session_start();
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
-                    <a href="#">Disaster Preparedness</a>
+                    <a href="#">Integrated Disaster Preparedness System</a>
                 </div>
-                <ul class="sidebar-nav">
+                <ul class="sidebar-nav">                   
                     <li class="sidebar-header">
                         User Elements
                     </li>
@@ -34,11 +34,23 @@ session_start();
                         </a>
                     </li>
                     <li class="sidebar-item">
+                        <a href="disaster_analysis.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Disaster Analysis
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="map.php" class="sidebar-link">
+                            <i class="fa-solid fa-map pe-2"></i>
+                            Predicted Disasters Map
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
                         <a href="view_users.php" class="sidebar-link">
                             <i class="fa-solid fa-user pe-2"></i>
                             Users
                         </a>
-                    </li>                    
+                    </li>    
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
@@ -49,10 +61,10 @@ session_start();
                                 <a href="https://www.facebook.com/bwotweather.org" class="sidebar-link">Facebook</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="community.php" class="sidebar-link">Community Forum</a>
+                                <a href="community_admin.php" class="sidebar-link">Community Forum</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="create_post.php" class="sidebar-link">
+                                <a href="create_post_admin.php" class="sidebar-link">
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>

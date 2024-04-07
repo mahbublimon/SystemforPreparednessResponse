@@ -21,14 +21,14 @@ session_start();
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
-                    <a href="#">Disaster Preparedness</a>
+                    <a href="#">Integrated Disaster Preparedness System</a>
                 </div>
-                <ul class="sidebar-nav">
+                <ul class="sidebar-nav">                   
                     <li class="sidebar-header">
                         User Elements
                     </li>
                     <li class="sidebar-item">
-                        <a href="user_dash .php" class="sidebar-link">
+                        <a href="user_dash.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
@@ -39,6 +39,13 @@ session_start();
                             Disaster Analysis
                         </a>
                     </li>
+                    <li class="sidebar-item">
+                        <a href="map.php" class="sidebar-link">
+                            <i class="fa-solid fa-map pe-2"></i>
+                            Predicted Disasters Map
+                        </a>
+                    </li>
+
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>

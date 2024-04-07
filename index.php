@@ -21,7 +21,7 @@ session_start();
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
-                    <a href="#">Disaster Preparedness</a>
+                    <a href="#">Integrated Disaster Preparedness System</a>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-header">
