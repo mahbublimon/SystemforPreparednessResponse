@@ -2,7 +2,6 @@
 include "connection.php";
 session_start();
 
-// SQL query to fetch data from the database entity
 $sql = "SELECT * FROM users WHERE user_type = 'user'";
 $result = $conn->query($sql);
 ?>
@@ -21,7 +20,6 @@ $result = $conn->query($sql);
 <body>
     <div class="wrapper">
         <aside id="sidebar" class="js-sidebar">
-            <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
                     <a href="#">Integrated Disaster Preparedness System</a>
@@ -118,10 +116,9 @@ $result = $conn->query($sql);
                             echo "<td>".$row["email"]."</td>";
                             echo "<td>".$row["gender"]."</td>";
                             echo "<td>".$row["password"]."</td>";
-                            // Add buttons associated with each user row
                             echo "<td>";
-                            echo "<a href='update_user.php?id=".$row["username"]."' class='btn btn-primary'>Update</a>";
-                            echo "<a href='delete_user.php?id=".$row["username"]."' class='btn btn-danger'>Delete</a>";
+                            echo "<a href='update_user.php?username=".$row["username"]."' class='btn btn-primary'>Update</a>";
+                            echo "<a href='delete_user.php?username=".$row["username"]."' class='btn btn-danger'>Delete</a>";
                             echo "</td>";
                             echo "</tr>";
                         }
