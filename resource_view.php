@@ -1,19 +1,10 @@
 <?php
 include "connection.php";
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $post_title = mysqli_real_escape_string($conn, $_POST['post_title']);
-    $post_content = mysqli_real_escape_string($conn, $_POST['post_content']);
-    $username = mysqli_real_escape_string($conn, $_SESSION['username']);
-
-    $sql = "INSERT INTO community_forum (username, post_title, post_content) VALUES ('$username', '$post_title', '$post_content')";
-    if (mysqli_query($conn, $sql)) {
-        header("Location: community.php");
-        exit(); 
-    } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-    }
-}
+$sql = "SELECT DISTINCT Type FROM resource";
+$sql2= "SELECT * FROM resource";
+$result = $conn->query($sql);
+$result2 = $conn->query($sql2);
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
@@ -30,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="wrapper">
-    <aside id="sidebar" class="js-sidebar">
+        <aside id="sidebar" class="js-sidebar">
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
@@ -41,22 +32,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         User Elements
                     </li>
                     <li class="sidebar-item">
-                        <a href="admin_dash.php" class="sidebar-link">
+                        <a href="user_dash.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="disaster_analysis_admin.php" class="sidebar-link">
+                        <a href="disaster_analysis.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Disaster Analysis
                         </a>
+                    </li>
                     <li class="sidebar-item">
-                        <a href="resource_list_admin.php" class="sidebar-link">
+                        <a href="resource_list.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Resources
                         </a>
-                    </li>                        
                     </li>
                     <li class="sidebar-item">
                         <a href="map.php" class="sidebar-link">
@@ -64,12 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             Predicted Disasters Map
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="view_users.php" class="sidebar-link">
-                            <i class="fa-solid fa-user pe-2"></i>
-                            Users
-                        </a>
-                    </li>    
+
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
@@ -80,10 +66,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <a href="https://www.facebook.com/bwotweather.org" class="sidebar-link">Facebook</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="community_admin.php" class="sidebar-link">Community Forum</a>
+                                <a href="community.php" class="sidebar-link">Community Forum</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="create_post_admin.php" class="sidebar-link">
+                                <a href="create_post.php" class="sidebar-link">
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>
@@ -97,10 +83,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </a>
                         <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                             <li class="sidebar-item">
-                                <a href="density-disaster_admin.php" class="sidebar-link">Density-Disaster</a>
+                                <a href="density-disaster.php" class="sidebar-link">Density-Disaster</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="death-disaster_admin.php" class="sidebar-link">Death-Disaster</a>
+                                <a href="death-disaster.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>
@@ -119,7 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <img src="profile.jpg" class="avatar img-fluid rounded" alt="">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a href="admin_profile.php" class="dropdown-item">Profile</a>
+                                <a href="user_profile.php" class="dropdown-item">Profile</a>
                                 <a href="#" class="dropdown-item">Setting</a>
                                 <a href="logout.php" class="dropdown-item">Logout</a>
                             </div>
@@ -128,19 +114,54 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </nav>
             <main class="content px-3 py-2">
-                <div class="container mt-4">
-                    <h2 class="mb-4">Create a Post</h2>
-                    <form action="create_post.php" method="POST">
-                        <div class="mb-3">
-                            <label for="post_title" class="form-label">Post Title</label>
-                            <input type="text" class="form-control" id="post_title" name="post_title" required>
+                <div class="container-fluid">
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-10 col-md-6 d-flex">
+
+                            <?php
+                                if ($result->num_rows > 0) {
+                                    echo "<ul>";
+                                    while($row = $result->fetch_assoc()) {
+                                        echo "<li><a href='resource_view.php?type=" . $row["Type"] . "'>" . $row["Type"] . "</a></li>";
+                                    }
+                                    echo "</ul>";
+                                } else {
+                                    echo "0 results";
+                                }
+                                ?>
+                            </div>
+                            <div class="col-12 col-md-6 d-flex">
+                                <div class="card flex-fill border-0">
+                                    <div class="card-body py-4">
+                                        <div class="d-flex align-items-start">
+                                        <?php
+                                            if (isset($_GET['type'])) {
+                                                $selectedType = $_GET['type'];
+                                                $sql2= "SELECT * FROM resource WHERE Type = '$selectedType'";
+                                                $result2 = $conn->query($sql2);
+                                                if ($result2->num_rows > 0) {
+                                                    while($row = $result2->fetch_assoc()) {
+                                                        echo "Resource ID: " . $row["resource_ID"]. "<br>";
+                                                        echo "Type: " . $row["Type"]. "<br>";
+                                                        echo "Quality: " . $row["Quality"]. "<br>";
+                                                        echo "Location: " . $row["Location"]. "<br>";
+                                                        echo "Status: " . $row["Status"]. "<br>";
+                                                        echo "Source: " . $row["Source"]. "<br><br>";
+                                                    }
+                                                } else {
+                                                    echo "0 results";
+                                                }
+                                            } else {
+                                                echo "Please select a type from the list on the left.";
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>  
+                                </div>       
+                            </div>                                         
                         </div>
-                        <div class="mb-3">
-                            <label for="post_content" class="form-label">Post Content</label>
-                            <textarea class="form-control" id="post_content" name="post_content" rows="3" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Post</button>
-                    </form>
+                    </div>
                 </div>
             </main>
             <a href="#" class="theme-toggle">
@@ -167,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                     </div>
                 </div>
-            </footer>            
+            </footer>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>

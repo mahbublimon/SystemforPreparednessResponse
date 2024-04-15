@@ -2,13 +2,11 @@
 include "connection.php";
 session_start();
 
-// get data from session
 $username = $_SESSION['username'];
 $query = "SELECT * FROM users WHERE username = '$username'";
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 
-// extract attributes
 $user_type = $row['user_type'];
 $username = $row['username'];
 $name = $row['firstname'] . " " . $row['lastname'];

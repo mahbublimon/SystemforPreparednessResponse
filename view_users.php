@@ -19,7 +19,8 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="wrapper">
-        <aside id="sidebar" class="js-sidebar">
+    <aside id="sidebar" class="js-sidebar">
+            <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
                     <a href="#">Integrated Disaster Preparedness System</a>
@@ -35,10 +36,16 @@ $result = $conn->query($sql);
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="disaster_analysis.php" class="sidebar-link">
+                        <a href="disaster_analysis_admin.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Disaster Analysis
                         </a>
+                    <li class="sidebar-item">
+                        <a href="resource_list_admin.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Resources
+                        </a>
+                    </li>                        
                     </li>
                     <li class="sidebar-item">
                         <a href="map.php" class="sidebar-link">
@@ -69,6 +76,20 @@ $result = $conn->query($sql);
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Historical Statistics
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="density-disaster_admin.php" class="sidebar-link">Density-Disaster</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="death-disaster_admin.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>
@@ -130,12 +151,10 @@ $result = $conn->query($sql);
             </div>
         </div>          
     </div>
-        <!-- Bootstrap Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script></body>
 </html>
 
 <?php
-// Close connection
 $conn->close();
 ?>

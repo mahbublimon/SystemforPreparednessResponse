@@ -48,13 +48,13 @@ function validate($data) {
 
 <body>
     <div class="wrapper">
-        <aside id="sidebar" class="js-sidebar">
+    <aside id="sidebar" class="js-sidebar">
             <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
                     <a href="#">Integrated Disaster Preparedness System</a>
                 </div>
-                <ul class="sidebar-nav">
+                <ul class="sidebar-nav">                   
                     <li class="sidebar-header">
                         User Elements
                     </li>
@@ -65,10 +65,16 @@ function validate($data) {
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="disaster_analysis.php" class="sidebar-link">
+                        <a href="disaster_analysis_admin.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Disaster Analysis
                         </a>
+                    <li class="sidebar-item">
+                        <a href="resource_list_admin.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Resources
+                        </a>
+                    </li>                        
                     </li>
                     <li class="sidebar-item">
                         <a href="map.php" class="sidebar-link">
@@ -81,7 +87,7 @@ function validate($data) {
                             <i class="fa-solid fa-user pe-2"></i>
                             Users
                         </a>
-                    </li>
+                    </li>    
                     <li class="sidebar-item">
                         <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
                             aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
@@ -96,9 +102,23 @@ function validate($data) {
                             </li>
                             <li class="sidebar-item">
                                 <a href="create_post_admin.php" class="sidebar-link">
-                                    <i class="fa-solid fa-pen pe-2"></i>
-                                    Create a Post
+                                <i class="fa-solid fa-pen pe-2"></i>
+                                Create a Post
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Historical Statistics
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="density-disaster_admin.php" class="sidebar-link">Density-Disaster</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="death-disaster_admin.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>

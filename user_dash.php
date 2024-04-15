@@ -40,6 +40,12 @@ session_start();
                         </a>
                     </li>
                     <li class="sidebar-item">
+                        <a href="resource_list.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Resources
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
                         <a href="map.php" class="sidebar-link">
                             <i class="fa-solid fa-map pe-2"></i>
                             Predicted Disasters Map
@@ -63,6 +69,20 @@ session_start();
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Historical Statistics
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="density-disaster.php" class="sidebar-link">Density-Disaster</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="death-disaster.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>
@@ -117,15 +137,27 @@ session_start();
                                     <div class="d-flex align-items-start">
                                         <img src="123.png" height="250px" class="mr-3">
                                         <div class="flex-grow-1">
-                                            <ul><b>
-                                                <li>Emergency Service: 999</li>
-                                                <br>
-                                                <li>Emergency Response Message: 10941</li>
-                                                <br>
-                                                <li>Information Service: 333</li>
-                                                <br>
-                                                <li>Fire Service: 16163</li>
-                                                </b>
+                                            <ul class="list-unstyled">
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:999" class="btn btn-danger">
+                                                        <i class="fas fa-phone-alt me-2"></i>Emergency Service: 999
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:1090" class="btn btn-warning">
+                                                        <i class="fas fa-exclamation-triangle me-2"></i>Natural Disaster Message: 1090
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:333" class="btn btn-success">
+                                                        <i class="fas fa-info-circle me-2"></i>Information Service: 333
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:16163" class="btn btn-primary">
+                                                        <i class="fas fa-fire-extinguisher me-2"></i>Fire Service: 16163
+                                                    </a>  
+                                                </li>     
                                             </ul>
                                         </div>
                                     </div>

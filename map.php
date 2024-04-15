@@ -90,7 +90,7 @@
     var map_a3cedddfa977601e108b024df0be9e36 = L.map(
         "map_a3cedddfa977601e108b024df0be9e36",
         {
-            center: [37.8, -96.0],
+            center: [23.685, 90.3563],
             crs: L.CRS.EPSG3857,
             zoom: 4,
             zoomControl: true,
@@ -106,16 +106,26 @@
 
     function geo_json_9c241d2f3421781038b74413416ddb17_styler(feature) {
         switch (feature.id) {
-            case "0": case "4": case "13": case "35": case "44":
+            case "0": case "10": case "20": case "30": case "40":case "50":case "60":case "70":case "80":case "90":case "100":case "110":case "120":case "130":case "140":case "150":case "160":case "170":
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "red", "weight": 1 };
-            case "2":
+            case "2": case "12": case "22": case "32": case "42":case "52":case "62":case "72":case "82":case "92":case "102":case "112":case "122":case "132":case "142":case "152":case "162":case "172":
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "green", "weight": 1 };
-            case "3":
+            case "4": case "14": case "24": case "34": case "44":case "54":case "64":case "74":case "84":case "94":case "104":case "114":case "124":case "134":case "144":case "154":case "164":case "174":
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "purple", "weight": 1 };
-            case "5": case "7": case "10": case "12": case "16": case "17": case "18": case "19": case "20": case "21": case "22": case "29": case "31": case "39": case "42":
+            case "6": case "16": case "26": case "36": case "46":case "56":case "66":case "76":case "86":case "96":case "106":case "116":case "126":case "136":case "146":case "156":case "166":case "176":
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "orange", "weight": 1 };
-            case "9": case "14": case "23": case "24": case "30": case "36":
+            case "8": case "18": case "28": case "38": case "48":case "58":case "68":case "78":case "88":case "98":case "108":case "118":case "128":case "138":case "148":case "158":case "168":case "178":
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "darkred", "weight": 1 };
+            case "1": case "11": case "21": case "31": case "41":case "51":case "61":case "71":case "81":case "91":case "101":case "111":case "121":case "131":case "141":case "151":case "161":case "171":
+                return { "color": "black", "dashArray": "5, 5", "fillColor": "yellow", "weight": 1 };
+            case "3": case "13": case "23": case "33": case "43":case "53":case "63":case "73":case "83":case "93":case "103":case "113":case "123":case "133":case "143":case "153":case "163":case "173":
+                return { "color": "black", "dashArray": "5, 5", "fillColor": "violet", "weight": 1 };
+            case "5": case "15": case "25": case "35": case "45":case "55":case "65":case "75":case "85":case "95":case "105":case "115":case "125":case "135":case "145":case "155":case "165":case "175":
+                return { "color": "black", "dashArray": "5, 5", "fillColor": "pink", "weight": 1 };
+            case "7": case "17": case "27": case "37": case "47":case "57":case "67":case "77":case "87":case "97":case "107":case "117":case "127":case "137":case "147":case "157":case "167":case "177":
+                return { "color": "black", "dashArray": "5, 5", "fillColor": "blue", "weight": 1 };
+            case "9": case "19": case "29": case "39": case "49":case "59":case "69":case "79":case "89":case "99":case "109":case "119":case "129":case "139":case "149":case "159":case "169":case "179": 
+                return { "color": "black", "dashArray": "5, 5", "fillColor": "brown", "weight": 1 };
             default:
                 return { "color": "black", "dashArray": "5, 5", "fillColor": "blue", "weight": 1 };
         }
@@ -136,10 +146,10 @@
             .addData(data)
             .addTo(map_a3cedddfa977601e108b024df0be9e36);
     }
-    fetch('usa_map.geo.json')  // assuming the file is located in a directory named "countries" relative to your HTML file
+    fetch('countries.geo.json')  
     .then(response => response.json())
     .then(data => {
-        geo_json_9c241d2f3421781038b74413416ddb17_add(data); // Pass the GeoJSON data to the function
+        geo_json_9c241d2f3421781038b74413416ddb17_add(data);
     })
     .catch(error => {
         console.error('Error fetching GeoJSON file:', error);

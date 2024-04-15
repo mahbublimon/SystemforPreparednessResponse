@@ -2,15 +2,12 @@
 include "connection.php";
 session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve post data and escape special characters
     $post_title = mysqli_real_escape_string($conn, $_POST['post_title']);
     $post_content = mysqli_real_escape_string($conn, $_POST['post_content']);
     $username = mysqli_real_escape_string($conn, $_SESSION['username']);
 
-    // inserts data into db
     $sql = "INSERT INTO community_forum (username, post_title, post_content) VALUES ('$username', '$post_title', '$post_content')";
     if (mysqli_query($conn, $sql)) {
-        // redirecting to all the posts
         header("Location: community.php");
         exit(); 
     } else {
@@ -34,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div class="wrapper">
         <aside id="sidebar" class="js-sidebar">
+            <!-- Content For Sidebar -->
             <div class="h-100">
                 <div class="sidebar-logo">
                     <a href="#">Integrated Disaster Preparedness System</a>
@@ -52,6 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a href="disaster_analysis.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Disaster Analysis
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="resource_list.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Resources
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -78,6 +82,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Historical Statistics
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="density-disaster.php" class="sidebar-link">Density-Disaster</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="death-disaster.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>
@@ -120,6 +138,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </form>
                 </div>
             </main>
+            <a href="#" class="theme-toggle">
+                <i class="fa-regular fa-moon"></i>
+                <i class="fa-regular fa-sun"></i>
+            </a>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-muted">
+                        <div class="col-6 text-start">
+                        </div>
+                        <div class="col-6 text-end">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <a href="link not created" class="text-muted">Contact</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="link not created" class="text-muted">About Us</a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="link not created" class="text-muted">Terms</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>  
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"></script>

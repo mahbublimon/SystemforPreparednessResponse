@@ -60,7 +60,7 @@ $gender = $row['gender'];
                                 <input type="text" class="form-control" id="gender" value="<?php echo $gender; ?>" readonly>
                             </div>
                             <div class="text-center">
-                                <a href="admin_dash.php" class="btn btn-primary">Back to Dashboard</a>
+                                <a href="user_dash.php" class="btn btn-primary">Back to Dashboard</a>
                             </div>
                         </div>
                     </div>

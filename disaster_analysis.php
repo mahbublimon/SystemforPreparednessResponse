@@ -2,19 +2,14 @@
 include "connection.php";
 session_start();
 
-// Query to get total number of disasters per year
 $sql_yearly_disasters = "SELECT Year, COUNT(*) AS total_disasters FROM all_disasters GROUP BY Year";
 
-// Query to get the most affected continents
 $sql_most_affected_continents = "SELECT Continent, COUNT(*) AS total_disasters FROM all_disasters GROUP BY Continent ORDER BY total_disasters DESC LIMIT 5";
 
-// Query to get the most affected countries
 $sql_most_affected_countries = "SELECT Country, COUNT(*) AS total_disasters FROM all_disasters GROUP BY Country ORDER BY total_disasters DESC LIMIT 5";
 
-// Query to get the most common types of disasters
 $sql_most_common_types = "SELECT Type, COUNT(*) AS total_disasters FROM all_disasters GROUP BY Type ORDER BY total_disasters DESC LIMIT 5";
 
-// Execute the queries
 $result_yearly_disasters = $conn->query($sql_yearly_disasters);
 $result_most_affected_continents = $conn->query($sql_most_affected_continents);
 $result_most_affected_countries = $conn->query($sql_most_affected_countries);
@@ -43,7 +38,7 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                         User Elements
                     </li>
                     <li class="sidebar-item">
-                        <a href="user_dash .php" class="sidebar-link">
+                        <a href="user_dash.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Dashboard
                         </a>
@@ -52,6 +47,12 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                         <a href="disaster_analysis.php" class="sidebar-link">
                             <i class="fa-solid fa-list pe-2"></i>
                             Disaster Analysis
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="resource_list.php" class="sidebar-link">
+                            <i class="fa-solid fa-list pe-2"></i>
+                            Resources
                         </a>
                     </li>
                     <li class="sidebar-item">
@@ -78,6 +79,20 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                                 <i class="fa-solid fa-pen pe-2"></i>
                                 Create a Post
                                 </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-target="#posts" data-bs-toggle="collapse"
+                            aria-expanded="false"><i class="fa-solid fa-sliders pe-2"></i>
+                            Historical Statistics
+                        </a>
+                        <ul id="posts" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="density-disaster.php" class="sidebar-link">Density-Disaster</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="death-disaster.php" class="sidebar-link">Death-Disaster</a>
                             </li>
                         </ul>
                     </li>
@@ -150,7 +165,7 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                                             $imageLink = "continents\Oceania.png";
                                             break;
                                         default:
-                                            $imageLink = ""; // Default image if continent is not recognized
+                                            $imageLink = ""; 
                                     }
                                     ?>
                                     <img src="<?php echo $imageLink; ?>" alt="<?php echo $row['Continent']; ?>" style="width: 50px; height: 50px;">
@@ -182,7 +197,7 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                                             $imageLink = "countries/CHINA.png";
                                             break;
                                         default:
-                                            $imageLink = ""; // Default image if country is not recognized
+                                            $imageLink = ""; 
                                     }
                                     ?>
                                     <img src="<?php echo $imageLink; ?>" alt="<?php echo $row['Country']; ?>" style="width: 50px; height: 50px;">
@@ -214,7 +229,7 @@ $result_most_common_types = $conn->query($sql_most_common_types);
                                             $imageLink = "disaster_pic/Landslide.png";
                                             break;
                                         default:
-                                            $imageLink = ""; // Default image if disaster is not recognized
+                                            $imageLink = ""; 
                                     }
                                     ?>
                                     <img src="<?php echo $imageLink; ?>" alt="<?php echo $row['Type']; ?>" style="width: 50px; height: 50px;">
@@ -233,6 +248,5 @@ $result_most_common_types = $conn->query($sql_most_common_types);
 </html>
 
 <?php
-// Close connection
 $conn->close();
 ?>

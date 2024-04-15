@@ -6,7 +6,7 @@ $username = "root";
 
 $password = "";
 
-$dbname = "disaster preparedness - group 26";
+$dbname = "disaster_preparedness";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
