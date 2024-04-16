@@ -122,15 +122,12 @@ session_start();
                             <div class="card flex-fill border-0 illustration">
                                 <div class="card-body p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
-                                        <div class="col-112">
-                                            <div class="p-3 m-1">
-                                                <h4>Today's Weather</h4>
-                                                <div class="weather-widget" id="weather-widget">
-                                                    <a class="weatherwidget-io" href="https://forecast7.com/en/23d8190d34/dhaka-district/" data-label_1="DHAKA DISTRICT" data-label_2="WEATHER" data-theme="original" >DHAKA DISTRICT WEATHER</a>     
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 align-self-end text-end">
+                                        <div class="weather-input">
+                                            <h3>Enter city name</h3>
+                                            <input class="city-input" type="text" placeholder="Seacrch">
+                                            <button class="search-btn">Search</button>
+                                            <div class="separator"></div>
+                                            <button class="location-btn">Current Location</button>
                                         </div>
                                     </div>
                                 </div>
@@ -170,11 +167,23 @@ session_start();
                             </div>
                         </div>        
                     </div>
-                </div>    
                 <!-- Table Element -->
-                <div class="natural-disasters-widget">
-                    <h3>Latest Natural Disaster News</h3>
-                    <ul id="news-list"></ul>
+                <section class="weather-data">
+                    <article class="current-weather card">
+                        <div class="row g-0">
+                            <div class="col-md-15">
+                                <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+        
+                <section class="days-forecast">
+                    <h2>5-days forecast</h2>
+                    <ul class="weather-cards">
+                    </ul>
+                </section>                
                 </div>
             </main>
             <a href="#" class="theme-toggle">

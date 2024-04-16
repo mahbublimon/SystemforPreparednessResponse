@@ -67,15 +67,12 @@ session_start();
                             <div class="card flex-fill border-0 illustration">
                                 <div class="card-body p-0 d-flex flex-fill">
                                     <div class="row g-0 w-100">
-                                        <div class="col-112">
-                                            <div class="p-3 m-1">
-                                                <h4>Today's Weather</h4>
-                                                <div class="weather-widget" id="weather-widget">
-                                                    <a class="weatherwidget-io" href="https://forecast7.com/en/23d8190d34/dhaka-district/" data-label_1="DHAKA DISTRICT" data-label_2="WEATHER" data-theme="original" >DHAKA DISTRICT WEATHER</a>     
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-6 align-self-end text-end">
+                                        <div class="weather-input">
+                                            <h3>Enter city name</h3>
+                                            <input class="city-input" type="text" placeholder="Seacrch">
+                                            <button class="search-btn">Search</button>
+                                            <div class="separator"></div>
+                                            <button class="location-btn">Current Location</button>
                                         </div>
                                     </div>
                                 </div>
@@ -87,15 +84,27 @@ session_start();
                                     <div class="d-flex align-items-start">
                                         <img src="123.png" height="250px" class="mr-3">
                                         <div class="flex-grow-1">
-                                            <ul><b>
-                                                <li>Emergency Service: 999</li>
-                                                <br>
-                                                <li>Emergency Response Message: 10941</li>
-                                                <br>
-                                                <li>Information Service: 333</li>
-                                                <br>
-                                                <li>Fire Service: 16163</li>
-                                                </b>
+                                            <ul class="list-unstyled">
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:999" class="btn btn-danger">
+                                                        <i class="fas fa-phone-alt me-2"></i>Emergency Service: 999
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:1090" class="btn btn-warning">
+                                                        <i class="fas fa-exclamation-triangle me-2"></i>Natural Disaster Message: 1090
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:333" class="btn btn-success">
+                                                        <i class="fas fa-info-circle me-2"></i>Information Service: 333
+                                                    </a>  
+                                                </li>     
+                                                <li class="fs-2 mb-2">
+                                                    <a href="tel:16163" class="btn btn-primary">
+                                                        <i class="fas fa-fire-extinguisher me-2"></i>Fire Service: 16163
+                                                    </a>  
+                                                </li>     
                                             </ul>
                                         </div>
                                     </div>
@@ -104,10 +113,22 @@ session_start();
                         </div>        
                     </div>
                 <!-- Table Element -->
-                <div class="natural-disasters-widget">
-                    <h3>Latest Natural Disaster News</h3>
-                    <ul id="news-list"></ul>
-                </div>
+                <section class="weather-data">
+                    <article class="current-weather card">
+                        <div class="row g-0">
+                            <div class="col-md-15">
+                                <div class="card-body">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+        
+                <section class="days-forecast">
+                    <h2>5-days forecast</h2>
+                    <ul class="weather-cards">
+                    </ul>
+                </section>                
                 </div>
             </main>
             <a href="#" class="theme-toggle">

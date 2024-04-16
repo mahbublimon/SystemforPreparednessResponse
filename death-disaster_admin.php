@@ -3,7 +3,7 @@ include "connection.php";
 $sql = "SELECT  
             all_disasters.Country,
             SUM(all_disasters.Deaths) AS TotalDeaths,
-            COUNT(all_disasters.ID) AS TotalDisasters,
+            COUNT(all_disasters.all_disasters_id) AS TotalDisasters,
             population.Density
         FROM 
             all_disasters
